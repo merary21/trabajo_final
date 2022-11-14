@@ -13,3 +13,4 @@ def registro(resquest):
 def iniciarsesion(resquest):
     return render (resquest, 'iniciasesion.html')
 
+
