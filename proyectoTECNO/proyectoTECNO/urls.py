@@ -20,8 +20,11 @@ from app_tienda.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio), 
-    path('quienessomos.html', quienessomos)
-    
+    path('quienessomos.html', quienessomos),
+    path('registro.html', registro), 
+    path('inicio.html', inicio), 
+    path('iniciasesion.html', iniciarsesion), 
+
     
     
    
