@@ -24,6 +24,13 @@ urlpatterns = [
     path('registro.html', registro), 
     path('inicio.html', inicio), 
     path('iniciasesion.html', iniciarsesion), 
+    path('admiClientes/', adminclientes),
+    path('registrar/', registrar),
+    path('eliminarC/<nombre>', eliminarcliente),
+    path('edicioncliente/<nombre>', edicioncliente),
+    path('editarcliente/', editarcliente),
+    
+
 
     
     
