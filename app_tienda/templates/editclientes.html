@@ -1,0 +1,42 @@
+{% extends "./base.html" %}
+
+{% block title %} Editar Registro {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/editarcliente/" method="POST">{% csrf_token %}
+                  <div class="form-group">
+                    <input type="text" id="txtNombre" name="txtNombre" value= "{{clien.nombre}}"class="form-control" placeholder="Nombre"
+                        maxlength="50" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="txtapellido" name="txtapellido" value= "{{clien.apellido}}" class="form-control" placeholder="Apellido"
+                      maxlength="50" required>
+                
+              </div>
+                <div class="form-group">
+                    <input type="text" id="numtelefono" name="numtelefono" value= "{{clien.telefono}}" class="form-control" placeholder="Telefono"
+                    maxlength="50" required>
+                </div>
+
+                <div class="form-group">
+                  <input type="text" id="txtdireccion" name="txtdireccion" value= "{{clien.direccion}}" class="form-control" placeholder="Direccion"
+                      maxlength="50" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="txtemail" name="txtemail" value= "{{clien.Email}}"class="form-control" placeholder="Email"
+                    maxlength="50" required>
+            </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
