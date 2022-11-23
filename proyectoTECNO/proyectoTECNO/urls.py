@@ -26,9 +26,9 @@ urlpatterns = [
     path('iniciasesion.html', iniciarsesion), 
     path('admiClientes/', adminclientes),
     path('registrar/', registrar),
-    path('eliminarC/<nombre>', eliminarcliente),
-    path('edicioncliente/<nombre>', edicioncliente),
-    path('editarcliente/', editarcliente),
+    path('admiClientes/eliminarCliente/<id>', elimclientes),
+    path('editclientes/<id>', editclientes),
+    path('admiClientes/guarclientes/<id>', guarclientes)
     
 
 
