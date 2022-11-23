@@ -5,10 +5,10 @@
 {% block body %}
 <div class="row">
     <div class="col-md-4 offset-md-4">
-        <h2>Editar</h2>
+        <h2>Editar Registro</h2>
         <div class="card">
             <div class="card-body">
-                <form action="/editarcliente/" method="POST">{% csrf_token %}
+                <form action="/guarclientes/" method="POST">{% csrf_token %}
                   <div class="form-group">
                     <input type="text" id="txtNombre" name="txtNombre" value= "{{clien.nombre}}"class="form-control" placeholder="Nombre"
                         maxlength="50" required>

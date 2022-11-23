@@ -35,36 +35,34 @@ def registrar(request):
     messages.success(request, '¡registrado!')
     return redirect('/admiClientes/')
 
-def edicioncliente(request, nombre):
-    curso = tblCiente.objects.get(codigo=nombre)
-    return render(request, "editclientes.html", {"clien": curso})
+def editclientes(request, id):
+    cliente=tblCiente.objects.get(id=id)
+    
+    return render(request, 'editclientes.html', {"clien":cliente})
 
-
-def editarcliente(request):
+def guarclientes(request, id):
     nombre = request.POST['txtNombre']
     apellido = request.POST['txtapellido']
     telefono = request.POST['numtelefono']
     direccion = request.POST['txtdireccion']
     Email = request.POST['txtemail']
-
-    curso = tblCiente.objects.get(nombre=nombre)
-    curso.apellido= apellido
-    curso.telefono=telefono
-    curso.direccion= direccion
-    curso.Email=Email
-    curso.save()
-
-    messages.success(request, '¡Registro actualizado!')
+    
+    id=tblCiente.objects.get(id=id)
+    id.nombre=nombre
+    id.apellido=apellido
+    id.telefono=telefono
+    id.direccion=direccion
+    id.Email=Email
+    id.save()
+    
+    messages.success(request, '¡Curso actualizado!')
 
     return redirect('/admiClientes/')
 
 
-def eliminarcliente(request, nombre):
-    curso = tblCiente.objects.get(nombre=nombre)
-    curso.delete()
-
-    messages.success(request, '¡Registro eliminado!')
-
+def elimclientes(request,id):
+    cliente=tblCiente.objects.get(id=id)
+    cliente.delete()
     return redirect('/admiClientes/')
 
 

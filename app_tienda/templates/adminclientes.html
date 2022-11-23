@@ -53,7 +53,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>N°</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Telefono</th>
@@ -71,8 +71,8 @@
                         <td>{{c.telefono}}</td>
                         <td>{{c.direccion}}</td>
                         <td>{{c.Email}}</td>
-                        <td><a href="edicioncliente/{{c.nombre}}" class="btn btn-info">Editar</a></td>
-                        <td><a href="eliminarC/{{c.nombre}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                        <td><a href="guarclientes/{{c.id}}" class="btn btn-info">Editar</a></td>
+                        <td><a href="eliminarCliente/{{c.id}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
