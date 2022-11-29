@@ -16,33 +16,32 @@
         <h2>Registrar usuario</h2>
         <div class="card">
             <div class="card-body">
-                <form action="/registrar/" method="POST">{% csrf_token %}
-                    
+                <form action="/regclientes/" method="POST">{% csrf_token %}
                     <div class="form-group">
-                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre"
+                        <input type="text" id="name1" name="name1" value= "{{clien.nombre}}"class="form-control" placeholder="Nombre"
                             maxlength="50" required>
                     </div>
                     <div class="form-group">
-                      <input type="text" id="txtapellido" name="txtapellido" class="form-control" placeholder="Apellido"
+                      <input type="text" id="ape1" name="ape1" value= "{{clien.apellido}}" class="form-control" placeholder="Apellido"
                           maxlength="50" required>
                     
                   </div>
                     <div class="form-group">
-                        <input type="text" id="numtelefono" name="numtelefono" class="form-control" placeholder="Telefono"
+                        <input type="text" id="tfno1" name="tfno1" value= "{{client.telefono}}" class="form-control" placeholder="Telefono"
                         maxlength="50" required>
                     </div>
-
+    
                     <div class="form-group">
-                      <input type="text" id="txtdireccion" name="txtdireccion" class="form-control" placeholder="Direccion"
+                      <input type="text" id="dic1" name="dic1" value= "{{client.direccion}}" class="form-control" placeholder="Direccion"
                           maxlength="50" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" id="txtemail" name="txtemail" class="form-control" placeholder="Email"
+                    <input type="text" id="ema1" name="ema1" value= "{{client.Email}}"class="form-control" placeholder="Email"
                         maxlength="50" required>
                 </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
-                    </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
                 </form>
             </div>
         </div>
