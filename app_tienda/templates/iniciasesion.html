@@ -1,60 +1,74 @@
+{%load static%}
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <title>Inicio de sesion</title>
 
-    <!--JQUERY-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
-    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
-    <!-- Los iconos tipo Solid de Fontawesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-
-    <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
-
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
+<body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    
+</body>
+<body>
+
+    <div class="container">
+
+    <div class="signup-form-container">
+    
+         <!-- form start -->
+         <form role="form" id="register-form" autocomplete="off">
+         
+         <div class="form-header">
+         <!-- form header -->       
+         </div>
+         
+         <div class="form-body">
+                          
+          <!-- form body will be here, input controls -->              
+              
+         </div>
+            
+         <div class="form-footer">
+            <!-- form footer, let say for submit button -->
+         </div>
+
+         </form>
+            
+    </div>
+
+    </div>
+</body>
 <div class="container">
     <h1 style="color: green">TecnoMundo</h1>
-<nav class="navbar navbar-expand-lg navbar-light bg-green">
-    <a class="navbar-brand" href="inicio.html">Inicio</a>
+
 </div>
 <body>
 
-    <div class="card bg-light">
-        <article class="card-body mx-auto" style="max-width: 400px;">
-            <h4 class="card-title mt-3 text-center">Inicio de sesion</h4>
-            <p> </p>
-        </div>
-<body>
-    <div class="modal-dialog text-center">
-        <div class="col-sm-8 main-section">
-            <div class="modal-content">
-            
-                <form class="col-12" th:action="@{/login}" method="get">
-                    <div class="form-group" id="user-group">
-                        <input type="text" class="form-control" placeholder="Nombre de usuario" name="username"/>
-                    </div>
-                    <div class="form-group" id="contrasena-group">
-                        <input type="password" class="form-control" placeholder="Contraseña" name="password"/>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
-                </form>
-                <div class="col-12 forgot">
-                    <a href="#">¿Recordar contraseña?</a>
-                </div>
-                <div th:if="${param.error}" class="alert alert-danger" role="alert">
-		          
-		        </div>
-		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
-		      
-		        </div>
-            </div>
-        </div>
-    </div>
+
+    {% block content%}
+<h1>Iniciar Sesion</h1>
+<div class="container">
+<form method="post", action="/"> {% csrf_token %}
+<div class="form-group">
+  <label for="input" class="col-sm-2 col-form-label">Usuario</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" name="username" id="username" >
+  </div>
+</div>
+<div class="form-group">
+  <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
+  <div class="col-sm-10">
+    <input type="password" class="form-control" name="password" id="password">
+  </div>
+</div>
+<button class="btn btn-outline-success">Iniciar Sesion</button>
+  <a href="/registro/">¿Aun no tienes Cuenta? registrate</a>
+</form>
+</div>
+    {% endblock %}
+    
 </body>
-</html>

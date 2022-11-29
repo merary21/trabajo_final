@@ -2,41 +2,40 @@
 
 {% block title %} Editar Registro {% endblock %}
 
-{% block body %}
-<div class="row">
-    <div class="col-md-4 offset-md-4">
-        <h2>Editar Registro</h2>
-        <div class="card">
-            <div class="card-body">
-                <form action="/guarclientes/" method="POST">{% csrf_token %}
-                  <div class="form-group">
-                    <input type="text" id="txtNombre" name="txtNombre" value= "{{clien.nombre}}"class="form-control" placeholder="Nombre"
-                        maxlength="50" required>
-                </div>
-                <div class="form-group">
-                  <input type="text" id="txtapellido" name="txtapellido" value= "{{clien.apellido}}" class="form-control" placeholder="Apellido"
-                      maxlength="50" required>
-                
-              </div>
-                <div class="form-group">
-                    <input type="text" id="numtelefono" name="numtelefono" value= "{{clien.telefono}}" class="form-control" placeholder="Telefono"
-                    maxlength="50" required>
-                </div>
-
-                <div class="form-group">
-                  <input type="text" id="txtdireccion" name="txtdireccion" value= "{{clien.direccion}}" class="form-control" placeholder="Direccion"
-                      maxlength="50" required>
-              </div>
-              <div class="form-group">
-                <input type="text" id="txtemail" name="txtemail" value= "{{clien.Email}}"class="form-control" placeholder="Email"
-                    maxlength="50" required>
-            </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
-                    </div>
-                </form>
-            </div>
+{% block content%}
+<div class="container text-centyer">
+  <div class="row">
+    <div class=" offset-3 col-6 ">
+      <form action="/guarclientes/{{cliente.id}}", method="post">{% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+          <input type="text" class="form-control" name="name1" value="{{cliente.nombre}}" id="name1" placeholder="name">
         </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Apellido</label>
+            <input type="text" class="form-control" name="ape1" value="{{cliente.apellido}}" id="ape1" placeholder="name">
+          </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">direccion</label>
+          <input type="text" class="form-control" name="dic1" value="{{cliente.direccion}}" id="dic1" placeholder="col. example">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
+          <input type="email" class="form-control" name="ema1"  value="{{cliente.Email}}" id="ema1"placeholder="example@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">telefono</label>
+          <input type="text" class="form-control" name="tfno1" value="{{cliente.telefono}}" id="tfno1" placeholder="xxxxxxxx">
+        </div>
+        <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-3">actualizar registro</button>
+      <a href="/admiClientes/" class="btn btn-outline-dark">Regresar</a>
     </div>
-</div>
-{% endblock %}
+  </form>
+  {% endblock %}
+
+
+
+
+
+</body>

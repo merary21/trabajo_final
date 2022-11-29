@@ -48,77 +48,51 @@
 </div>
 <body>
 
-    <div class="card bg-light">
-        <article class="card-body mx-auto" style="max-width: 400px;">
-            <h4 class="card-title mt-3 text-center">Crear cuenta</h4>
-            <p> </p>
-            <p>
-                <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Inicia via Twitter</a>
-                <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Inicia via facebook</a>
-            </p>
+    {% block content%}
+    <h1>Registrar Usuario</h1>
+    <div class="container">
+        <form method="post" action="/registro/">{% csrf_token %}
+          <div class="form-group">
+            <label for="ExampleInputEmail" class="col-sm-2 col-form-label">Nombre de Usuario</label>
+          
+             {{form.username}}
             
-            <form>
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                 </div>
-                <input name="" class="form-control" placeholder="Nombre Completo" type="text">
-            </div> <!-- form-group// -->
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                 </div>
-                <input name="" class="form-control" placeholder="Correo electronico" type="email">
-            </div> <!-- form-group// -->
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                </div>
-                <select class="custom-select" style="max-width: 120px;">
-                    <option selected="">+503</option>
-                    <option value="1">+505</option>
-                    <option value="2">+001</option>
-                </select>
-                <input name="" class="form-control" placeholder="Numero de telefono" type="text">
-            </div> <!-- form-group// -->
+          </div>
+          <div class="form-group">
+            <label for="ExampleInputEmail" class="col-sm-2 col-form-label">Email</label>
+            
+              {{form.email}}
+            
+          </div>
+          <div class="form-group">
+            <label for="ExampleInputEmail" class="col-sm-2 col-form-label">Nombre</label>
+            
+              {{form.first_name}}
+            
+          </div>
+          <div class="form-group">
+            <label for="ExampleInputEmail" class="col-sm-2 col-form-label">Apellido</label>
         
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                </div>
-                <input class="form-control" placeholder="Crear contraseña" type="password">
-            </div> <!-- form-group// -->
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                </div>
-                <input class="form-control" placeholder="Confirmar contraseña" type="password">
-            </div> <!-- form-group// -->      
-            <p></p>                                
+              {{form.last_name}}
+        
+          </div>
+          <div class="form-group">
+            <label for="ExampleInputPassword" class="col-sm-2 col-form-label">Contraseña</label>
+            
+         
+              {{form.password1}}
+            </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Crear </button>
-            </div> <!-- form-group// -->      
-            <p></p>   
-            <p class="text-center">Tienes una cuenta? <a href="iniciasesion.html">Iniciar sesion</a> </p>                                                                 
+            <label for="ExampleInputPassword" class="col-sm-2 col-form-label"> Confirmar Contraseña</label>
+                
+            {{form.password2}}
+          </div>
+          <button class="btn btn-outline-success">Crear Cuenta</button>
         </form>
-        </article>
-        </div> <!-- card.// -->
-        
-        </div> 
-      <!--container end.//-->
-        
-      <br><br>
-      <article class="bg-secondary mb-3">  
-      <div class="card-body text-center">
-          <h3 class="text-white mt-3">TecnoMundo</h3>
-      <p class="h5 text-white">Venta de equipos y herramientas tecnologicas  <br> A los mejores precios y la mejor calidad
-      </p>   <br>
-      <p><a class="btn btn-warning" target="_blank" href="#"> Iniciar gratis 
-       <i class="fa fa-window-restore "></i></a></p>
+        <a href="/">¿Ya tienes un Cuenta? Ingresa</a>
       </div>
-      <br><br>
-      </article>
- 
+    
+        {% endblock %}
  </body>
  <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/jquery-1.11.2.min.js"></script>
