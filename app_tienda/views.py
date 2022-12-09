@@ -101,3 +101,22 @@ def elimclientes(request,id):
     
     return redirect('/admclientes')
 
+def aggpedido(request):
+    nombre=request.POST['name']
+    codigo= request.POST['num']
+    precio= request.POST['pre']
+    pedido= tblproducto.objects.create(
+     nombre=nombre, codigo=codigo, precio=precio)
+
+    
+
+    return redirect('/pedidos')
+def pedido(request):
+    pedido = tblproducto.objects.all()
+
+    return render (request, 'pedidos.html', {"pedido":pedido})
+
+def registrarped (request):
+
+    return HttpResponse 
+
