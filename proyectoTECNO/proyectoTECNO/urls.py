@@ -25,13 +25,12 @@ urlpatterns = [
     path('', login),
     path('cerrarsesion/', logot),
     path('register/', registro),
-    path('clientes/', clientes),
-    path('eliminarCliente/<id>', elimclientes),
+    path('admclientes/', clientes),
+    path('admclientes/eliminar/<id>', elimclientes),
     path('regclientes/', regclientes),
-    path('editclientes/<id>', editclientes),
-    path('guarclientes/', guarclientes),
-     path('pedidos/', pedido),
-    path('aggpedido/', aggpedido)
+    
+    path('admclientes/editclientes/<id>', editclientes),
+    path('guarclientes/<id>', guarclientes)
 
     
     
