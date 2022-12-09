@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 def inicio(resquest):
@@ -12,6 +13,9 @@ def inicio(resquest):
 
 def quienessomos(resquest):
     return render (resquest, 'quienessomos.html')
+
+def contactenos(resquest):
+    return render (resquest, 'contacto.html')
 
 def login(request):
     if request.method == "POST":
@@ -22,7 +26,7 @@ def login(request):
         if user is not None:
          login(request, user)
         return redirect('inicio/')
-    return render(request, "iniciasesion.html")
+    return render(request, "lte.html")
 
 def logot(request):
     logout(request)
@@ -42,11 +46,11 @@ def registro(request):
         if form.is_valid():
            form.save()
           
-    return render(request, "registro.html", {"form":form})
+    return render(request, "register.html", {"form":form})
 
 def clientes(request):
     cliente = tblCiente.objects.all()
-    return render(request, "adminclientes.html", {"client":cliente})
+    return render(request, "clientes.html", {"cliente":cliente})
 
 def regclientes(request):
    nombre=request.POST['name1']
@@ -57,13 +61,25 @@ def regclientes(request):
    cliente=tblCiente.objects.create(
     nombre=nombre, apellido=apellido, telefono=telefono, direccion=direccion, Email=Email
    )
+   
+   messages.success(request, '¡Cliente Registrado!')
 
-   return redirect('/admiClientes')
+   return redirect('/clientes')
+
+def aggpedido(request):
+    cantidad=request.POST['num']
+    precio=request.POST['pre']
+    pedido= tblpedido.objects.create(
+    cantidad=cantidad, precio=precio)
+
+    
+
+    return redirect('/pedidos')
 
 def editclientes(request, id):
     cliente=tblCiente.objects.get(id=id)
     
-    return render(request, 'editclientes.html', {"cliente":cliente})
+    return render(request, 'editcliente.html', {"cliente":cliente})
 
 def guarclientes(request, id):
    nombre=request.POST['name1']
@@ -78,12 +94,26 @@ def guarclientes(request, id):
    id.direccion=direccion
    id.Email=Email
    id.save()
+   
+   messages.success(request, '¡Registro actualizado!')
 
-   return redirect('/admiClientes')
+   return redirect('/clientes')
 
 def elimclientes(request,id):
     cliente=tblCiente.objects.get(id=id)
     cliente.delete()
-    return redirect('/admiClientes')
+    
+    messages.success(request, '¡Cliente eliminado!')
+    
+    return redirect('/clientes')
+
+def pedido(request):
+    pedido = tblpedido.objects.all()
+
+    return render (request, 'pedidos.html', {"pedido":pedido})
+
+def registrarped (request):
+
+    return HttpResponse 
 
 

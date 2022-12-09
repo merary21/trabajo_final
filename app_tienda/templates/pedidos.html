@@ -1,0 +1,45 @@
+
+      {% block content%}
+      <div class="container text-centyer">
+        <div class="row">
+          <div class="col-6 ">
+            <form action="/aggpedido/", method="post">{% csrf_token %}
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">telefono</label>
+                <input type="text" class="form-control" name="num" value="{{pedido.cantidad}}" id="num" placeholder="56">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">precio</label>
+                <input type="number" class="form-control" name="pre"  id="pre" placeholder="56">
+              </div>
+           
+        </form>
+            <table id="mostrar" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                <th>cantidad</th>
+                <th>precio</th>
+
+            </tr>
+              </thead>
+              <tbody>
+                {%for ped in pedido %}
+                <tr>
+                  <td>{{ped.cantidad}}</td>
+                  <td>{{ped.precio}}</td>
+                  
+                  {% endfor %}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      {% endblock %}
+
+ 
+
+
+
+
+</body>

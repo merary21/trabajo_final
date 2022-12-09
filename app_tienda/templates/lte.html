@@ -49,26 +49,27 @@
 <body>
 
 
-    {% block content%}
-<h1>Iniciar Sesion</h1>
-<div class="container">
-<form method="post", action="/"> {% csrf_token %}
-<div class="form-group">
-  <label for="input" class="col-sm-2 col-form-label">Usuario</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" name="username" id="username" >
+  {% block content%}
+  <h1>Iniciar Sesion</h1>
+  <div class="container">
+  <form method="post", action="/"> {% csrf_token %}
+  <div class="form-group">
+    <label for="input" class="col-sm-2 col-form-label">Usuario</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="username" id="username" >
+    </div>
   </div>
-</div>
-<div class="form-group">
-  <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
-  <div class="col-sm-10">
-    <input type="password" class="form-control" name="password" id="password">
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" name="password" id="password">
+    </div>
   </div>
-</div>
-<button class="btn btn-outline-success">Iniciar Sesion</button>
-  <a href="/registro/">¿Aun no tienes Cuenta? registrate</a>
-</form>
-</div>
-    {% endblock %}
-    
-</body>
+  <button class="btn btn-outline-success">Iniciar Sesion</button>
+    <a href="/register/">¿Aun no tienes Cuenta? registrate</a>
+  </form>
+  </div>
+      {% endblock %}
+  
+      
+  </body>
