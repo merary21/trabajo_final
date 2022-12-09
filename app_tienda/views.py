@@ -37,6 +37,8 @@ class Registro(UserCreationForm):
     class Meta:
         model = User 
         fields=['username','password1','password2','email','first_name','last_name']
+        
+        
 
     
 def registro(request):
@@ -50,7 +52,7 @@ def registro(request):
 
 def clientes(request):
     cliente = tblCiente.objects.all()
-    return render(request, "clientes.html", {"cliente":cliente})
+    return render(request, "admclientes.html", {"cliente":cliente})
 
 def regclientes(request):
    nombre=request.POST['name1']
@@ -64,17 +66,7 @@ def regclientes(request):
    
    messages.success(request, '¡Cliente Registrado!')
 
-   return redirect('/clientes')
-
-def aggpedido(request):
-    cantidad=request.POST['num']
-    precio=request.POST['pre']
-    pedido= tblpedido.objects.create(
-    cantidad=cantidad, precio=precio)
-
-    
-
-    return redirect('/pedidos')
+   return redirect('/admclientes')
 
 def editclientes(request, id):
     cliente=tblCiente.objects.get(id=id)
@@ -87,17 +79,19 @@ def guarclientes(request, id):
    telefono=request.POST['tfno1']
    direccion=request.POST['dic1']
    Email=request.POST['ema1']
-   id=tblCiente.objects.get(id=id)
-   id.nombre=nombre
-   id.apellido=apellido
-   id.telefono=telefono
-   id.direccion=direccion
-   id.Email=Email
-   id.save()
+   
+   client = tblCiente.objects.get(id=id)
+   
+   client.nombre=nombre
+   client.apellido=apellido
+   client.telefono=telefono
+   client.direccion=direccion
+   client.Email=Email
+   client.save()
    
    messages.success(request, '¡Registro actualizado!')
 
-   return redirect('/clientes')
+   return redirect('/admclientes')
 
 def elimclientes(request,id):
     cliente=tblCiente.objects.get(id=id)
@@ -105,15 +99,5 @@ def elimclientes(request,id):
     
     messages.success(request, '¡Cliente eliminado!')
     
-    return redirect('/clientes')
-
-def pedido(request):
-    pedido = tblpedido.objects.all()
-
-    return render (request, 'pedidos.html', {"pedido":pedido})
-
-def registrarped (request):
-
-    return HttpResponse 
-
+    return redirect('/admclientes')
 

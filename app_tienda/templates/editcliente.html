@@ -1,32 +1,40 @@
-{% block content%}
-      <div class="container text-centyer">
-        <div class="row">
-          <div class=" offset-3 col-6 ">
-            <form action="/guarclientes/{{cliente.id}}", method="post">{% csrf_token %}
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="name1" value="{{cliente.nombre}}" id="name1" placeholder="name">
+{% extends "./base.html" %}
+
+{% block title %} Gestión de clientes {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+            <h1> Editar usuario</h1>
+            <div class="card">
+              <div class="card-body">
+            <form action="/guarclientes/{{cliente.id}}" method="POST">{% csrf_token %}
+              <div class="form-group">
+                <div class="form-group">
+                  <input type="text" id="name1" name="name1" value= "{{cliente.nombre}}"class="form-control" placeholder="Nombre"
+                      maxlength="50" required>
               </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="ape1" value="{{cliente.apellido}}" id="ape1" placeholder="name">
+              <div class="form-group">
+                <input type="text" id="ape1" name="ape1" value= "{{cliente.apellido}}" class="form-control" placeholder="Apellido"
+                    maxlength="50" required>
+              
+            </div>
+              <div class="form-group">
+                  <input type="text" id="tfno1" name="tfno1" value= "{{cliente.telefono}}" class="form-control" placeholder="Telefono"
+                  maxlength="50" required>
               </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">direccion</label>
-                <input type="text" class="form-control" name="dic1" value="{{cliente.direccion}}" id="dic1" placeholder="col. example">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
-                <input type="email" class="form-control" name="ema1"  value="{{cliente.Email}}" id="ema1"placeholder="example@example.com">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">telefono</label>
-                <input type="text" class="form-control" name="tfno1" value="{{cliente.telefono}}" id="tfno1" placeholder="xxxxxxxx">
-              </div>
-              <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">actualizar registro</button>
-            <a href="/clientes/" class="btn btn-outline-dark">Regresar</a>
+
+              <div class="form-group">
+                <input type="text" id="dic1" name="dic1" value= "{{cliente.direccion}}" class="form-control" placeholder="Direccion"
+                    maxlength="50" required>
+            </div>
+            <div class="form-group">
+              <input type="text" id="ema1" name="ema1" value= "{{cliente.Email}}"class="form-control" placeholder="Email"
+                  maxlength="50" required>
           </div>
+                  <div class="form-group">
+                      <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                  </div>
         </form>
         {% endblock %}
 
