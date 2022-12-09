@@ -30,7 +30,10 @@ urlpatterns = [
     path('regclientes/', regclientes),
     
     path('admclientes/editclientes/<id>', editclientes),
-    path('guarclientes/<id>', guarclientes)
+    path('guarclientes/<id>', guarclientes),
+    
+    path('pedidos/', pedido),
+    path('aggpedido/', aggpedido)
 
     
     
