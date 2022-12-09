@@ -20,15 +20,18 @@ from app_tienda.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('inicio/', inicio),
-    path('quienessomos/', quienessomos),
+    path('inicio/quienessomos/', quienessomos),
+    path('inicio/contactenos/', contactenos),
     path('', login),
     path('cerrarsesion/', logot),
-    path('registro/', registro),
-    path('admiClientes/', clientes),
+    path('register/', registro),
+    path('clientes/', clientes),
+    path('eliminarCliente/<id>', elimclientes),
     path('regclientes/', regclientes),
-    path('elimclientes/<id>', elimclientes),
     path('editclientes/<id>', editclientes),
-    path('guarclientes/<id>', guarclientes)
+    path('guarclientes/', guarclientes),
+     path('pedidos/', pedido),
+    path('aggpedido/', aggpedido)
 
     
     
